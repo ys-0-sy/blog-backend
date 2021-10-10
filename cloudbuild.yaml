@@ -1,0 +1,13 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/blog-strapi-image", "."]
+
+substitutions:
+  _DB_USER: hey
+  _DB_PASS: hoge
+
+options:
+  substitution_option: "ALLOW_LOOSE"
+
+images:
+  - "gcr.io/$PROJECT_ID/blog-strapi-image"
