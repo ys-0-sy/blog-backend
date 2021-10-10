@@ -44,7 +44,6 @@ substitutions:
   _GCR_HOSTNAME: asia.gcr.io
   _DB_USER: hoge
   _DB_PASS: huga
-  _
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
