@@ -11,3 +11,5 @@ options:
 
 images:
   - "gcr.io/$PROJECT_ID/blog-strapi-image"
+
+timeout: 3600s
