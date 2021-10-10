@@ -25,8 +25,8 @@ steps:
       - >-
         --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
       - "--region=$_DEPLOY_REGION"
-      - "--update-env-vars SECRET_NAME=projects/589054766877/secrets/application_settings/versions/1"
-      - "--add-cloudsql-instances $PROJECT_ID:$REGION:$CLOUD_SQL_NAME"
+      - "--update-env-vars SECRET_NAME=projects/$PROJECT_ID/secrets/application_settings/versions/1"
+      - "--add-cloudsql-instances $PROJECT_ID:$_DEPLOY_REGION:$_CLOUD_SQL_NAME"
       - "--allow-unauthenticated"
       - "--quiet"
     id: Deploy
@@ -44,6 +44,7 @@ substitutions:
   _GCR_HOSTNAME: asia.gcr.io
   _DB_USER: hoge
   _DB_PASS: huga
+  _CLOUD_SQL_NAME: blog-strapi
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
